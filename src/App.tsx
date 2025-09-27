@@ -71,7 +71,7 @@ function HomePage() {
               <img
                 src={LOGO_SRC}
                 alt="3 Generations Electric logo"
-                className="max-h-60 w-auto object-contain"
+                className="max-h-72 w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).outerHTML =
                     '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
@@ -106,6 +106,20 @@ function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about">
+        <div className="max-w-6xl mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">About Us</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed text-lg">
+            Our company started as a small family venture over three generations ago, when our grandfather began wiring homes
+            in the Austin area with a simple promise: do the job right, treat people fairly, and always stand by your work.
+            That spirit continues today. Over the years, we’ve grown alongside the community, helping neighbors modernize
+            their homes, install safer panels, and embrace new technologies like EV chargers and smart home systems. We believe
+            in clear communication, honest pricing, and leaving every project cleaner than when we arrived.
+          </p>
         </div>
       </section>
 
@@ -188,7 +202,6 @@ function PrivacyPage() {
         3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
         collect, use, and protect your information.
       </p>
-      {/* ... keep the rest unchanged ... */}
     </div>
   );
 }
@@ -198,7 +211,6 @@ function TermsPage() {
     <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
       <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
       <p className="mb-4">Effective Date: September 26, 2025</p>
-      {/* ... keep the rest unchanged ... */}
     </div>
   );
 }
@@ -213,7 +225,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,0.35)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter]">
+    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,0.35)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter] scroll-smooth">
       {/* Header */}
       <header className="sticky top-0 z-40 backdrop-blur bg-white/90 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -224,6 +236,9 @@ export default function App() {
             <a href="#/" className="hover:text-yellow-600 text-sm font-medium transition-colors">
               Home
             </a>
+            <a href="#about" className="hover:text-yellow-600 text-sm font-medium transition-colors">
+              About Us
+            </a>
             <a href="#contact">
               <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Free Quote</Button>
             </a>
@@ -231,7 +246,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* Routed page */}
       {route === "/" && <HomePage />}
       {route === "/privacy" && <PrivacyPage />}
       {route === "/terms" && <TermsPage />}
