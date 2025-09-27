@@ -193,24 +193,98 @@ function HomePage() {
   );
 }
 
+// helper near the top of the file (above the pages)
+const formatDate = () =>
+  new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
 function PrivacyPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-      <p className="mb-4">Effective Date: September 26, 2025</p>
-      <p className="mb-4">
-        3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
-        collect, use, and protect your information.
-      </p>
+    <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
+      <a href="#/" className="text-sm underline text-slate-600 hover:text-slate-900">← Back to Home</a>
+      <div className="mt-4 bg-white rounded-2xl shadow-md p-6 md:p-8">
+        <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
+        <p className="mb-6 text-slate-600">Effective Date: {formatDate()}</p>
+
+        <p className="mb-4">
+          3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
+          collect, use, and protect your information.
+        </p>
+
+        <h2 className="text-xl font-semibold mt-6 mb-2">Information We Collect</h2>
+        <ul className="list-disc ml-6 mb-4">
+          <li>Contact Form Data: name, phone number, email, and message when you request a quote.</li>
+          <li>Phone & Email: if you call or email us directly.</li>
+          <li>Automatic Info: we do not track cookies or run ads on this site.</li>
+        </ul>
+
+        <h2 className="text-xl font-semibold mt-6 mb-2">How We Use Information</h2>
+        <ul className="list-disc ml-6 mb-4">
+          <li>To provide same-day quotes and respond to your requests.</li>
+          <li>To schedule and complete electrical services.</li>
+          <li>To improve communication with our customers.</li>
+        </ul>
+
+        <h2 className="text-xl font-semibold mt-6 mb-2">Information We Do NOT Share</h2>
+        <p className="mb-4">We do not sell or rent your personal information. We only share your information if required by law.</p>
+
+        <h2 className="text-xl font-semibold mt-6 mb-2">Data Retention</h2>
+        <p className="mb-4">
+          We keep records of quotes and jobs as required by Texas business law. You may request we delete your info at any time by
+          emailing: 3generationselectric@gmail.com.
+        </p>
+
+        <h2 className="text-xl font-semibold mt-6 mb-2">Your Rights</h2>
+        <p className="mb-6">
+          Texas residents may request access to, correction of, or deletion of their personal information. Contact us at the email above.
+        </p>
+
+        <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
+        <p>
+          3 Generations Electric<br />Austin, TX<br />
+          Email: 3generationselectric@gmail.com<br />
+          Phone: (737) 233-7319
+        </p>
+      </div>
     </div>
   );
 }
 
 function TermsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
-      <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
-      <p className="mb-4">Effective Date: September 26, 2025</p>
+    <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
+      <a href="#/" className="text-sm underline text-slate-600 hover:text-slate-900">← Back to Home</a>
+      <div className="mt-4 bg-white rounded-2xl shadow-md p-6 md:p-8">
+        <h1 className="text-3xl font-bold mb-2">Terms of Service</h1>
+        <p className="mb-6 text-slate-600">Effective Date: {formatDate()}</p>
+
+        <h2 className="text-xl font-semibold mt-4 mb-2">Services</h2>
+        <p className="mb-4">
+          We provide licensed residential electrical work in Texas. Quotes are free and based on information provided by the
+          customer. Final pricing may change depending on job conditions.
+        </p>
+
+        <h2 className="text-xl font-semibold mt-4 mb-2">Licensing</h2>
+        <p className="mb-4">All work is performed under Texas Department of Licensing & Regulation License #: 7953.</p>
+
+        <h2 className="text-xl font-semibold mt-4 mb-2">Limitation of Liability</h2>
+        <p className="mb-4">
+          We are not responsible for delays caused by weather, material shortages, or utility providers. Services are provided “as
+          available.” We make every effort to complete jobs safely and on time.
+        </p>
+
+        <h2 className="text-xl font-semibold mt-4 mb-2">Payments</h2>
+        <p className="mb-4">Payment terms will be outlined in your invoice or service agreement.</p>
+
+        <h2 className="text-xl font-semibold mt-4 mb-2">Governing Law</h2>
+        <p className="mb-6">These Terms are governed by the laws of the State of Texas. Venue: courts of Travis County, Texas.</p>
+
+        <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
+        <p>
+          3 Generations Electric<br />Austin, TX<br />
+          Email: 3generationselectric@gmail.com<br />
+          Phone: (737) 233-7319
+        </p>
+      </div>
     </div>
   );
 }
