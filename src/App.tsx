@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import './index.css';
-import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from './icons';
+// src/App.tsx
+import React, { useEffect, useState } from "react";
+import "./index.css";
+import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from "./icons";
 
 const LOGO_SRC = "/image000000-3.png";
 
+// Build the prefilled mailto link
 function buildMailto({ name, email, phone, message }: { name: string; email: string; phone: string; message: string }) {
   const subject = encodeURIComponent("Quote Request - 3 Generations Electric");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
   return `mailto:3generationselectric@gmail.com?subject=${subject}&body=${body}`;
 }
 
+/** ------------------ Simple hash router ------------------ **/
+type Route = "/" | "/privacy" | "/terms";
+const getRoute = (): Route => {
+  const h = (window.location.hash || "#/").replace("#", "");
+  if (h === "/privacy") return "/privacy";
+  if (h === "/terms") return "/terms";
+  return "/";
+};
+
+/** ------------------ Reusable UI ------------------ **/
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({ className = "", ...props }) => (
   <button className={"px-4 py-2 rounded-xl font-medium shadow-sm " + className} {...props} />
 );
-
 const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ className = "", ...props }) => (
   <input className={"w-full px-3 py-2 rounded-xl border border-slate-300 " + className} {...props} />
 );
-
 const Textarea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement>> = ({ className = "", ...props }) => (
   <textarea className={"w-full px-3 py-2 rounded-xl border border-slate-300 min-h-[120px] " + className} {...props} />
 );
 
-export default function App() {
+/** ------------------ Pages ------------------ **/
+function HomePage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm({ ...form, [e.target.name]: e.target.value });
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
   const submitHref = buildMailto(form);
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,0.35)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter]">
-      <header className="sticky top-0 z-40 backdrop-blur bg-white/90 shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <a href="#home" className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase">
-            3 Generations Electric
-          </a>
-          <div className="flex items-center gap-6">
-            <a href="#home" className="hover:text-yellow-600 text-sm font-medium transition-colors">Home</a>
-            <a href="#about" className="hover:text-yellow-600 text-sm font-medium transition-colors">About</a>
-            <a href="#contact"><Button className="bg-yellow-500 text-black hover:bg-yellow-400">Free Quote</Button></a>
-          </div>
-        </div>
-      </header>
-
+    <>
+      {/* Hero */}
       <section id="home" className="relative">
         <div className="relative max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-7">
@@ -49,28 +49,37 @@ export default function App() {
               Powering Homes for <span className="text-yellow-600">3 Generations</span>
             </h1>
             <p className="mt-6 text-lg text-slate-700 max-w-prose">
-              Trusted residential electricians in Austin, Manor, Bastrop, and Elgin. From EV chargers to full panel upgrades - safe, reliable, and family-run service.
+              Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades —
+              safe, reliable, and family-run service.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="tel:17372337319"><Button className="bg-yellow-500 text-black hover:bg-yellow-400">Call (English) 737-233-7319</Button></a>
-              <a href="tel:17372337320"><Button className="border border-yellow-500 text-yellow-700 hover:bg-yellow-500 hover:text-black bg-transparent">Llamar (Español) 737-233-7320</Button></a>
+              <a href="tel:17372337319">
+                <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Call (English) 737-233-7319</Button>
+              </a>
+              <a href="tel:17372337320">
+                <Button className="border border-yellow-500 text-yellow-700 hover:bg-yellow-500 hover:text-black bg-transparent">
+                  Llamar (Español) 737-233-7320
+                </Button>
+              </a>
             </div>
             <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-slate-700">
-              {["Free same-day quotes","Clean, on-time work","Up-front pricing"].map((t) => (
+              {["Free same-day quotes", "Clean, on-time work", "Up-front pricing"].map((t) => (
                 <li key={t} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
-                  <CheckCircle className="w-4 h-4 text-yellow-500"/> {t}
+                  <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="md:col-span-5">
             <div className="rounded-3xl bg-white p-8 shadow-lg grid place-items-center">
               <img
                 src={LOGO_SRC}
                 alt="3 Generations Electric logo"
-                className="max-h-44 w-auto"
+                className="max-h-60 w-auto object-contain bg-white p-4 rounded-xl shadow-md"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).outerHTML = '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
+                  (e.target as HTMLImageElement).outerHTML =
+                    '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
                 }}
               />
             </div>
@@ -78,10 +87,11 @@ export default function App() {
         </div>
       </section>
 
+      {/* Services */}
       <section id="services">
         <div className="max-w-6xl mx-auto px-4 py-20">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Our Services</h2>
-          <p className="mt-3 text-slate-600">Upgrades, installs, and repairs tailored to your home's needs.</p>
+          <p className="mt-3 text-slate-600">Upgrades, installs, and repairs tailored to your home’s needs.</p>
           <div className="mt-10 grid md:grid-cols-2 gap-x-12 gap-y-4 text-slate-700">
             {[
               "Residential Wiring & Repairs",
@@ -96,7 +106,7 @@ export default function App() {
               "Emergency Electrical Service",
             ].map((s) => (
               <div key={s} className="flex items-start gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
-                <CheckCircle className="mt-0.5 w-4 h-4 text-yellow-500"/>
+                <CheckCircle className="mt-0.5 w-4 h-4 text-yellow-500" />
                 <span>{s}</span>
               </div>
             ))}
@@ -104,19 +114,33 @@ export default function App() {
         </div>
       </section>
 
+      {/* About */}
       <section id="about">
         <div className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-6">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">About 3 Generations Electric</h2>
             <p className="mt-4 text-slate-700 leading-relaxed text-lg">
-              Our company started as a small family venture over three generations ago, when our grandfather began wiring homes in the Austin area with a simple promise: do the job right, treat people fairly, and always stand by your work. That spirit continues today. Over the years, we've grown alongside the community, helping neighbors modernize their homes, install safer panels, and embrace new technologies like EV chargers and smart home systems. We believe in clear communication, honest pricing, and leaving every project cleaner than when we arrived. For us, being electricians isn't just about fixing wires – it's about building trust and long-lasting relationships in the neighborhoods we call home.
+              Our company started as a small family venture over three generations ago, when our grandfather began wiring homes
+              in the Austin area with a simple promise: do the job right, treat people fairly, and always stand by your work.
+              That spirit continues today. Over the years, we’ve grown alongside the community, helping neighbors modernize
+              their homes, install safer panels, and embrace new technologies like EV chargers and smart home systems. We believe
+              in clear communication, honest pricing, and leaving every project cleaner than when we arrived. For us, being
+              electricians isn’t just about fixing wires — it’s about building trust and long-lasting relationships in the
+              neighborhoods we call home.
             </p>
             <ul className="mt-6 space-y-2 text-sm text-slate-700">
-              <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-yellow-500"/> Transparent, up-front pricing</li>
-              <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-yellow-500"/> Same-day quotes</li>
-              <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-yellow-500"/> Respect for your home - we clean as we go</li>
+              <li className="flex gap-2">
+                <CheckCircle className="w-4 h-4 text-yellow-500" /> Transparent, up-front pricing
+              </li>
+              <li className="flex gap-2">
+                <CheckCircle className="w-4 h-4 text-yellow-500" /> Same-day quotes
+              </li>
+              <li className="flex gap-2">
+                <CheckCircle className="w-4 h-4 text-yellow-500" /> Respect for your home — we clean as we go
+              </li>
             </ul>
           </div>
+
           <div className="md:col-span-6 grid sm:grid-cols-2 gap-6">
             {[
               { title: "Licensed", text: "TX License # - 7953" },
@@ -131,26 +155,46 @@ export default function App() {
         </div>
       </section>
 
+      {/* Contact */}
       <section id="contact">
         <div className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Get a Fast Quote</h2>
             <p className="mt-3 text-slate-700">Same-day responses in most cases.</p>
             <div className="mt-6 space-y-3 text-sm">
-              <div className="flex items-center gap-2"><PhoneIcon className="w-4 h-4 text-yellow-600"/> (English) <a className="underline" href="tel:17372337319">737-233-7319</a></div>
-              <div className="flex items-center gap-2"><PhoneIcon className="w-4 h-4 text-yellow-600"/> (Español) <a className="underline" href="tel:17372337320">737-233-7320</a></div>
-              <div className="flex items-center gap-2"><MailIcon className="w-4 h-4 text-yellow-600"/> 3generationselectric@gmail.com</div>
-              <div className="flex items-center gap-2"><MapPinIcon className="w-4 h-4 text-yellow-600"/> Austin, Manor, Bastrop, Elgin</div>
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="w-4 h-4 text-yellow-600" /> (English){" "}
+                <a className="underline" href="tel:17372337319">
+                  737-233-7319
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="w-4 h-4 text-yellow-600" /> (Español){" "}
+                <a className="underline" href="tel:17372337320">
+                  737-233-7320
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MailIcon className="w-4 h-4 text-yellow-600" /> 3generationselectric@gmail.com
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPinIcon className="w-4 h-4 text-yellow-600" /> Austin, Manor, Bastrop, Elgin
+              </div>
             </div>
           </div>
-          <form className="space-y-3" onSubmit={(e) => {
-            e.preventDefault();
-            if (!form.name || !form.email || !form.phone || !form.message) {
-              alert("Please fill in all required fields including phone number.");
-              return;
-            }
-            window.location.href = submitHref;
-          }} aria-label="Quote form">
+
+          <form
+            className="space-y-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!form.name || !form.email || !form.phone || !form.message) {
+                alert("Please fill in all required fields including phone number.");
+                return;
+              }
+              window.location.href = submitHref;
+            }}
+            aria-label="Quote form"
+          >
             <label className="block text-sm font-medium text-slate-700">
               Your name <span className="text-red-500">*</span>
               <Input required name="name" placeholder="Your name" value={form.name} onChange={onChange} />
@@ -165,32 +209,184 @@ export default function App() {
             </label>
             <label className="block text-sm font-medium text-slate-700">
               Your message <span className="text-red-500">*</span>
-              <Textarea required name="message" placeholder="Tell us what you need (e.g., panel upgrade, EV charger, lights)" value={form.message} onChange={onChange} />
+              <Textarea
+                required
+                name="message"
+                placeholder="Tell us what you need (e.g., panel upgrade, EV charger, lights)"
+                value={form.message}
+                onChange={onChange}
+              />
             </label>
             <div className="flex flex-wrap gap-3">
-              <Button type="submit" className="bg-yellow-500 text-black hover:bg-yellow-400">Email Quote</Button>
-              <a href="tel:17372337319"><Button type="button" className="border border-slate-300 bg-white hover:bg-slate-50">Call Now</Button></a>
+              <Button type="submit" className="bg-yellow-500 text-black hover:bg-yellow-400">
+                Email Quote
+              </Button>
+              <a href="tel:17372337319">
+                <Button type="button" className="border border-slate-300 bg-white hover:bg-slate-50">
+                  Call Now
+                </Button>
+              </a>
             </div>
-            <p className="text-xs text-slate-500">By contacting us, you agree to our terms & privacy.</p>
+            <p className="text-xs text-slate-500">
+              By contacting us, you agree to our <a href="#/terms" className="underline">Terms</a> &{" "}
+              <a href="#/privacy" className="underline">Privacy Policy</a>.
+            </p>
           </form>
         </div>
       </section>
 
+      {/* Mobile sticky call bar */}
       <div className="fixed md:hidden bottom-4 left-0 right-0 px-4">
         <div className="mx-auto max-w-sm rounded-2xl shadow-lg bg-white flex overflow-hidden">
-          <a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">Call</a>
-          <div className="w-px bg-slate-200"/>
-          <a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
+          <a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">
+            Call
+          </a>
+          <div className="w-px bg-slate-200" />
+          <a className="flex-1 py-3 text-center font-medium" href="#contact">
+            Quote
+          </a>
         </div>
       </div>
+    </>
+  );
+}
 
+function PrivacyPage() {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
+      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+      <p className="mb-4">Effective Date: September 26, 2025</p>
+      <p className="mb-4">
+        3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
+        collect, use, and protect your information.
+      </p>
+      <h2 className="text-xl font-semibold mt-6 mb-2">Information We Collect</h2>
+      <ul className="list-disc ml-6 mb-4">
+        <li>Contact Form Data: name, phone number, email, and message when you request a quote.</li>
+        <li>Phone & Email: if you call or email us directly.</li>
+        <li>Automatic Info: we do not track cookies or run ads on this site.</li>
+      </ul>
+      <h2 className="text-xl font-semibold mt-6 mb-2">How We Use Information</h2>
+      <ul className="list-disc ml-6 mb-4">
+        <li>To provide same-day quotes and respond to your requests.</li>
+        <li>To schedule and complete electrical services.</li>
+        <li>To improve communication with our customers.</li>
+      </ul>
+      <h2 className="text-xl font-semibold mt-6 mb-2">Information We Do NOT Share</h2>
+      <p className="mb-4">We do not sell or rent your personal information. We only share your information if required by law.</p>
+      <h2 className="text-xl font-semibold mt-6 mb-2">Data Retention</h2>
+      <p className="mb-4">
+        We keep records of quotes and jobs as required by Texas business law. You may request we delete your info at any time by
+        emailing: 3generationselectric@gmail.com.
+      </p>
+      <h2 className="text-xl font-semibold mt-6 mb-2">Your Rights</h2>
+      <p className="mb-4">
+        Texas residents may request access to, correction of, or deletion of their personal information. Contact us at the email
+        above.
+      </p>
+      <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
+      <p>
+        3 Generations Electric
+        <br />
+        Austin, TX
+        <br />
+        Email: 3generationselectric@gmail.com
+        <br />
+        Phone: (737) 233-7319
+      </p>
+    </div>
+  );
+}
+
+function TermsPage() {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
+      <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
+      <p className="mb-4">Effective Date: September 26, 2025</p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Services</h2>
+      <p className="mb-4">
+        We provide licensed residential electrical work in Texas. Quotes are free and based on information provided by the
+        customer. Final pricing may change depending on job conditions.
+      </p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Licensing</h2>
+      <p className="mb-4">All work is performed under Texas Department of Licensing & Regulation License #: 7953.</p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Limitation of Liability</h2>
+      <p className="mb-4">
+        We are not responsible for delays caused by weather, material shortages, or utility providers. Services are provided “as
+        available.” We make every effort to complete jobs safely and on time.
+      </p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Payments</h2>
+      <p className="mb-4">Payment terms will be outlined in your invoice or service agreement.</p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Governing Law</h2>
+      <p className="mb-4">These Terms are governed by the laws of the State of Texas. Venue: courts of Travis County, Texas.</p>
+      <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
+      <p>
+        3 Generations Electric
+        <br />
+        Austin, TX
+        <br />
+        Email: 3generationselectric@gmail.com
+        <br />
+        Phone: (737) 233-7319
+      </p>
+    </div>
+  );
+}
+
+/** ------------------ App shell with header/footer + routing ------------------ **/
+export default function App() {
+  const [route, setRoute] = useState<Route>(getRoute());
+
+  useEffect(() => {
+    const onHashChange = () => setRoute(getRoute());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,0.35)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter]">
+      {/* Header */}
+      <header className="sticky top-0 z-40 backdrop-blur bg-white/90 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <a href="#/" className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase">
+            3 Generations Electric
+          </a>
+          <div className="flex items-center gap-6">
+            <a href="#/" className="hover:text-yellow-600 text-sm font-medium transition-colors">
+              Home
+            </a>
+            <a href="#/privacy" className="hover:text-yellow-600 text-sm font-medium transition-colors">
+              Privacy
+            </a>
+            <a href="#/terms" className="hover:text-yellow-600 text-sm font-medium transition-colors">
+              Terms
+            </a>
+            <a href="#contact">
+              <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Free Quote</Button>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Routed page */}
+      {route === "/" && <HomePage />}
+      {route === "/privacy" && <PrivacyPage />}
+      {route === "/terms" && <TermsPage />}
+
+      {/* Footer */}
       <footer className="bg-white">
         <div className="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
           <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
           <div className="flex items-center gap-4">
-            <span>TX License #: <span className="font-medium">7953</span></span>
-            <a href="#" className="hover:opacity-80">Terms</a>
-            <a href="#" className="hover:opacity-80">Privacy</a>
+            <span>
+              TX License #: <span className="font-medium">7953</span>
+            </span>
+            <a href="#/terms" className="hover:opacity-80">
+              Terms
+            </a>
+            <a href="#/privacy" className="hover:opacity-80">
+              Privacy
+            </a>
           </div>
         </div>
       </footer>
