@@ -63,18 +63,14 @@ Llamar (Español) 737-233-7320
     "Free same-day quotes",
     "Clean, on-time work",
     "Up-front pricing",
-    // Short badge on small screens; show license # from md+
-    "Licensed • Bonded • Insured",
+    "Licensed • Bonded • Insured — TX License #7953",
   ].map((t, i) => (
     <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
-      <CheckCircle className="w-4 h-4 text-yellow-500" />
-      <span className="text-[13px] md:text-sm">
-        {t}
-        {i === 3 && <span className="hidden md:inline"> — TX License #7953</span>}
-      </span>
+      <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
     </li>
   ))}
 </ul>
+
 
 </div>
 <div className="md:col-span-5">
@@ -101,7 +97,10 @@ Llamar (Español) 737-233-7320
 <a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
 </div>
 </div>
-}
+
+const formatDate = () =>
+  new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
 function PrivacyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
