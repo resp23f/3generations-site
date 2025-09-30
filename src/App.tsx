@@ -6,98 +6,103 @@ const LOGO_SRC = "/image000000-3.png"; // ensure this file exists in /public
 const LICENSE_BADGE = "Licensed • Bonded • Insured — TX License #7953";
 
 function buildMailto({ name, email, phone, message }: { name: string; email: string; phone: string; message: string }) {
-const subject = encodeURIComponent("Quote Request - 3 Generations Electric");
-const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
-return `mailto:3generationselectric@gmail.com?subject=${subject}&body=${body}`;
+  const subject = encodeURIComponent("Quote Request - 3 Generations Electric");
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
+  return `mailto:3generationselectric@gmail.com?subject=${subject}&body=${body}`;
 }
 
 type Route = "/" | "/privacy" | "/terms";
 const getRoute = (): Route => {
-const h = (window.location.hash || "#/" ).replace("#", "");
-if (h === "/privacy") return "/privacy";
-if (h === "/terms") return "/terms";
-return "/";
+  const h = (window.location.hash || "#/").replace("#", "");
+  if (h === "/privacy") return "/privacy";
+  if (h === "/terms") return "/terms";
+  return "/";
 };
 
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({ className = "", ...props }) => (
-<button className={"px-4 py-2 rounded-xl font-medium shadow-sm " + className} {...props} />
+  <button className={"px-4 py-2 rounded-xl font-medium shadow-sm " + className} {...props} />
 );
 const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ className = "", ...props }) => (
-<input className={"w-full px-3 py-2 rounded-xl border border-slate-300 " + className} {...props} />
+  <input className={"w-full px-3 py-2 rounded-xl border border-slate-300 " + className} {...props} />
 );
 const Textarea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement>> = ({ className = "", ...props }) => (
-<textarea className={"w-full px-3 py-2 rounded-xl border border-slate-300 min-h-[120px] " + className} {...props} />
+  <textarea className={"w-full px-3 py-2 rounded-xl border border-slate-300 min-h-[120px] " + className} {...props} />
 );
 
 function HomePage() {
-const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-setForm({ ...form, [e.target.name]: e.target.value });
-const submitHref = buildMailto(form);
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+  const submitHref = buildMailto(form);
 
-return (
-<>
-{/* Hero */}
-<section id="home" className="relative">
-<div className="relative max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-12 gap-10 items-center">
-<div className="md:col-span-7">
-<h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
-Powering Homes for <span className="text-yellow-600">3 Generations</span>
-</h1>
-<p className="mt-6 text-lg text-slate-700 max-w-prose">
-Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades —
-safe, reliable, and family-run service.
-</p>
-<div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3">
-<a href="tel:17372337319">
-<Button className="w-full sm:w-auto bg-yellow-500 text-black hover:bg-yellow-400">Call (English) 737-233-7319</Button>
-</a>
-<a href="tel:17372337320">
-<Button className="w-full sm:w-auto border border-yellow-500 text-yellow-700 hover:bg-yellow-500 hover:text-black bg-transparent">
-Llamar (Español) 737-233-7320
-</Button>
-</a>
-</div>
-<ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
-  {[
-    "Free same-day quotes",
-    "Clean, on-time work",
-    "Up-front pricing",
-    "Licensed • Bonded • Insured — TX License #7953",
-  ].map((t, i) => (
-    <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
-      <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
-    </li>
-  ))}
-</ul>
+  return (
+    <>
+      {/* Hero */}
+      <section id="home" className="relative">
+        <div className="relative max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+              Powering Homes for <span className="text-yellow-600">3 Generations</span>
+            </h1>
+            <p className="mt-6 text-lg text-slate-700 max-w-prose">
+              Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades —
+              safe, reliable, and family-run service.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3">
+              <a href="tel:17372337319">
+                <Button className="w-full sm:w-auto bg-yellow-500 text-black hover:bg-yellow-400">
+                  Call (English) 737-233-7319
+                </Button>
+              </a>
+              <a href="tel:17372337320">
+                <Button className="w-full sm:w-auto border border-yellow-500 text-yellow-700 hover:bg-yellow-500 hover:text-black bg-transparent">
+                  Llamar (Español) 737-233-7320
+                </Button>
+              </a>
+            </div>
+            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
+              {[
+                "Free same-day quotes",
+                "Clean, on-time work",
+                "Up-front pricing",
+                LICENSE_BADGE,
+              ].map((t, i) => (
+                <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
+                  <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          <div className="md:col-span-5">
+            <div className="grid place-items-center">
+              <img
+                src={LOGO_SRC}
+                alt="3 Generations Electric logo"
+                className="max-h-40 md:max-h-72 w-auto object-contain rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hover:scale-[1.02]"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).outerHTML =
+                    '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-</div>
-<div className="md:col-span-5">
-<div className="grid place-items-center">
-<img
-  src={LOGO_SRC}
-  alt="3 Generations Electric logo"
-  className="max-h-40 md:max-h-72 w-auto object-contain rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hover:scale-[1.02]"
-  onError={(e) => {
-    (e.target as HTMLImageElement).outerHTML =
-      '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
-  }}
-/>
-</div>
-</div>
-</div>
-</section>
+      {/* Mobile quick action bar */}
+      <div className="fixed md:hidden bottom-4 left-0 right-0 px-4 z-40">
+        <div className="mx-auto max-w-sm rounded-2xl shadow-lg bg-white flex overflow-hidden border border-slate-200">
+          <a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">Call</a>
+          <div className="w-px bg-slate-200"/>
+          <a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
+        </div>
+      </div>
+    </>
+  );
+}
 
-{/* Mobile quick action bar */}
-<div className="fixed md:hidden bottom-4 left-0 right-0 px-4 z-40">
-<div className="mx-auto max-w-sm rounded-2xl shadow-lg bg-white flex overflow-hidden border border-slate-200">
-<a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">Call</a>
-<div className="w-px bg-slate-200"/>
-<a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
-</div>
-</div>
-
+// helpers
 const formatDate = () =>
   new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
