@@ -58,26 +58,30 @@ Llamar (Español) 737-233-7320
 </Button>
 </a>
 </div>
-<ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
-{["Free same-day quotes", "Clean, on-time work", "Up-front pricing", LICENSE_BADGE].map((t, i) => (
-<li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
-<CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
-</li>
-))}
+<ul className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-3 text-sm text-slate-700">
+  {[
+    "Free same-day quotes",
+    "Clean, on-time work",
+    "Up-front pricing",
+    LICENSE_BADGE,
+  ].map((t, i) => (
+    <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
+      <CheckCircle className="w-4 h-4 text-yellow-500" />
+      {t}
+    </li>
+  ))}
 </ul>
 </div>
-
 <div className="md:col-span-5">
 <div className="grid place-items-center">
 <img
-src={LOGO_SRC}
-alt="3 Generations Electric logo"
-className="max-h-40 md:max-h-72 w-auto object-contain rounded-2xl shadow-2xl shadow-slate-500/50"
-style={{ filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.35))" }}
-onError={(e) => {
-(e.target as HTMLImageElement).outerHTML =
-'<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
-}}
+  src={LOGO_SRC}
+  alt="3 Generations Electric logo"
+  className="max-h-40 md:max-h-72 w-auto object-contain rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hover:scale-[1.02]"
+  onError={(e) => {
+    (e.target as HTMLImageElement).outerHTML =
+      '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
+  }}
 />
 </div>
 </div>
@@ -92,9 +96,7 @@ onError={(e) => {
 <a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
 </div>
 </div>
-
 }
-
 function PrivacyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
