@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from "./icons";
-import { ShieldCheck } from "lucide-react";
 
 const LOGO_SRC = "/image000000-3.png"; // ensure this file exists in /public
 const LICENSE_BADGE = "Licensed • Bonded • Insured — TX License #7953";
@@ -65,9 +64,13 @@ function HomePage() {
                   <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
                 </li>
               ))}
-              <li key="badge" className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-yellow-500" /> {LICENSE_BADGE}
-              </li>
+             <li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
+  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+  {LICENSE_BADGE}
+</li>
             </ul>
           </div>
 
