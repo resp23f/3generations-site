@@ -58,19 +58,24 @@ Llamar (Español) 737-233-7320
 </Button>
 </a>
 </div>
-<ul className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-3 text-sm text-slate-700">
+<ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
   {[
     "Free same-day quotes",
     "Clean, on-time work",
     "Up-front pricing",
-    LICENSE_BADGE,
+    // Short badge on small screens; show license # from md+
+    "Licensed • Bonded • Insured",
   ].map((t, i) => (
-    <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
+    <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
       <CheckCircle className="w-4 h-4 text-yellow-500" />
-      {t}
+      <span className="text-[13px] md:text-sm">
+        {t}
+        {i === 3 && <span className="hidden md:inline"> — TX License #7953</span>}
+      </span>
     </li>
   ))}
 </ul>
+
 </div>
 <div className="md:col-span-5">
 <div className="grid place-items-center">
