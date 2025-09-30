@@ -2,15 +2,30 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from "./icons";
 
-const LOGO_SRC = "/image000000-3.png"; // ensure this file exists in /public
+/** Public assets */
+const LOGO_SRC = "/image000000-3.png"; // ensure this exists in /public
+
+/** Text constants */
 const LICENSE_BADGE = "Licensed • Bonded • Insured — TX License #7953";
 
-function buildMailto({ name, email, phone, message }: { name: string; email: string; phone: string; message: string }) {
+/** Mailto helper */
+function buildMailto({
+  name,
+  email,
+  phone,
+  message,
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}) {
   const subject = encodeURIComponent("Quote Request - 3 Generations Electric");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
   return `mailto:3generationselectric@gmail.com?subject=${subject}&body=${body}`;
 }
 
+/** Simple hash router */
 type Route = "/" | "/privacy" | "/terms";
 const getRoute = (): Route => {
   const h = (window.location.hash || "#/").replace("#", "");
@@ -19,6 +34,7 @@ const getRoute = (): Route => {
   return "/";
 };
 
+/** Small UI helpers */
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({ className = "", ...props }) => (
   <button className={"px-4 py-2 rounded-xl font-medium shadow-sm " + className} {...props} />
 );
@@ -29,6 +45,7 @@ const Textarea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement>> = ({
   <textarea className={"w-full px-3 py-2 rounded-xl border border-slate-300 min-h-[120px] " + className} {...props} />
 );
 
+/** ---------- PAGES ---------- **/
 function HomePage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -45,9 +62,11 @@ function HomePage() {
               Powering Homes for <span className="text-yellow-600">3 Generations</span>
             </h1>
             <p className="mt-6 text-lg text-slate-700 max-w-prose">
-              Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades —
-              safe, reliable, and family-run service.
+              Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades — safe,
+              reliable, and family-run service.
             </p>
+
+            {/* CTAs */}
             <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a href="tel:17372337319">
                 <Button className="w-full sm:w-auto bg-yellow-500 text-black hover:bg-yellow-400">
@@ -60,6 +79,8 @@ function HomePage() {
                 </Button>
               </a>
             </div>
+
+            {/* Features / trust row */}
             <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
               {[
                 "Free same-day quotes",
@@ -67,13 +88,17 @@ function HomePage() {
                 "Up-front pricing",
                 LICENSE_BADGE,
               ].map((t, i) => (
-                <li key={i} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
+                <li
+                  key={i}
+                  className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap"
+                >
                   <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Logo with 3D effect */}
           <div className="md:col-span-5">
             <div className="grid place-items-center">
               <img
@@ -93,19 +118,118 @@ function HomePage() {
       {/* Mobile quick action bar */}
       <div className="fixed md:hidden bottom-4 left-0 right-0 px-4 z-40">
         <div className="mx-auto max-w-sm rounded-2xl shadow-lg bg-white flex overflow-hidden border border-slate-200">
-          <a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">Call</a>
-          <div className="w-px bg-slate-200"/>
-          <a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
+          <a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">
+            Call
+          </a>
+          <div className="w-px bg-slate-200" />
+          <a className="flex-1 py-3 text-center font-medium" href="#contact">
+            Quote
+          </a>
         </div>
       </div>
+
+      {/* About Us */}
+      <section id="about">
+        <div className="max-w-6xl mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">About Us</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed text-lg">
+            Our company started as a small family venture over three generations ago, when our grandfather began wiring homes in
+            the Austin area with a simple promise: do the job right, treat people fairly, and always stand by your work. That
+            spirit continues today. Over the years, we’ve grown alongside the community, helping neighbors modernize their homes,
+            install safer panels, and embrace new technologies like EV chargers and smart home systems. We believe in clear
+            communication, honest pricing, and leaving every project cleaner than when we arrived.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact">
+        <div className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Get a Fast Quote</h2>
+            <p className="mt-3 text-slate-700">Same-day responses in most cases.</p>
+            <div className="mt-6 space-y-3 text-sm">
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="w-4 h-4 text-yellow-600" /> (English){" "}
+                <a className="underline" href="tel:17372337319">
+                  737-233-7319
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="w-4 h-4 text-yellow-600" /> (Español){" "}
+                <a className="underline" href="tel:17372337320">
+                  737-233-7320
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MailIcon className="w-4 h-4 text-yellow-600" /> 3generationselectric@gmail.com
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPinIcon className="w-4 h-4 text-yellow-600" /> Austin, Manor, Bastrop, Elgin
+              </div>
+            </div>
+          </div>
+
+          <form
+            className="space-y-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!form.name || !form.email || !form.phone || !form.message) {
+                alert("Please fill in all required fields including phone number.");
+                return;
+              }
+              window.location.href = submitHref;
+            }}
+            aria-label="Quote form"
+          >
+            <label className="block text-sm font-medium text-slate-700">
+              Your name <span className="text-red-500">*</span>
+              <Input required name="name" placeholder="Your name" value={form.name} onChange={onChange} />
+            </label>
+            <label className="block text-sm font-medium text-slate-700">
+              Your email <span className="text-red-500">*</span>
+              <Input required name="email" type="email" placeholder="Your email" value={form.email} onChange={onChange} />
+            </label>
+            <label className="block text-sm font-medium text-slate-700">
+              Your phone <span className="text-red-500">*</span>
+              <Input required name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} />
+            </label>
+            <label className="block text-sm font-medium text-slate-700">
+              Your message <span className="text-red-500">*</span>
+              <Textarea
+                required
+                name="message"
+                placeholder="Tell us what you need (e.g., panel upgrade, EV charger, lights)"
+                value={form.message}
+                onChange={onChange}
+              />
+            </label>
+            <div className="flex flex-wrap gap-3">
+              <Button type="submit" className="bg-yellow-500 text-black hover:bg-yellow-400">
+                Email Quote
+              </Button>
+              <a href="tel:17372337319">
+                <Button type="button" className="border border-slate-300 bg-white hover:bg-slate-50">
+                  Call Now
+                </Button>
+              </a>
+            </div>
+            <p className="text-xs text-slate-500">
+              By contacting us, you agree to our <a href="#/terms" className="underline">Terms</a> &{" "}
+              <a href="#/privacy" className="underline">Privacy Policy</a>.
+            </p>
+          </form>
+        </div>
+      </section>
     </>
   );
 }
 
-// helpers
+/** Helpers */
 const formatDate = () =>
   new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
+/** Privacy & Terms pages */
 function PrivacyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
@@ -147,8 +271,8 @@ function PrivacyPage() {
 
         <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
         <p>
-          3 Generations Electric<br/>Austin, TX<br/>
-          Email: 3generationselectric@gmail.com<br/>
+          3 Generations Electric<br />Austin, TX<br />
+          Email: 3generationselectric@gmail.com<br />
           Phone: (737) 233-7319
         </p>
       </div>
@@ -187,8 +311,8 @@ function TermsPage() {
 
         <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
         <p>
-          3 Generations Electric<br/>Austin, TX<br/>
-          Email: 3generationselectric@gmail.com<br/>
+          3 Generations Electric<br />Austin, TX<br />
+          Email: 3generationselectric@gmail.com<br />
           Phone: (737) 233-7319
         </p>
       </div>
@@ -196,8 +320,16 @@ function TermsPage() {
   );
 }
 
+/** ---------- APP SHELL + ROUTING ---------- **/
 export default function App() {
   const [route, setRoute] = useState<Route>(getRoute());
+
+  // Ensure we always have a hash route so Home renders at the root domain
+  useEffect(() => {
+    if (!window.location.hash || !["#/", "#/privacy", "#/terms"].includes(window.location.hash)) {
+      window.location.hash = "#/";
+    }
+  }, []);
 
   useEffect(() => {
     const onHashChange = () => setRoute(getRoute());
@@ -227,6 +359,7 @@ export default function App() {
         </div>
       </header>
 
+      {/* Routed content */}
       {route === "/" && <HomePage />}
       {route === "/privacy" && <PrivacyPage />}
       {route === "/terms" && <TermsPage />}
