@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from "./icons";
 
-const LOGO_SRC = "/image000000-3.png";
+const LOGO_SRC = "/image000000-3.png"; // ensure this file exists in /public
+const LICENSE_BADGE = "Licensed • Bonded • Insured — TX License #7953";
 
 function buildMailto({ name, email, phone, message }: { name: string; email: string; phone: string; message: string }) {
   const subject = encodeURIComponent("Quote Request - 3 Generations Electric");
@@ -47,17 +48,17 @@ function HomePage() {
               Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades —
               safe, reliable, and family-run service.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a href="tel:17372337319">
-                <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Call (English) 737-233-7319</Button>
+                <Button className="w-full sm:w-auto bg-yellow-500 text-black hover:bg-yellow-400">Call (English) 737-233-7319</Button>
               </a>
               <a href="tel:17372337320">
-                <Button className="border border-yellow-500 text-yellow-700 hover:bg-yellow-500 hover:text-black bg-transparent">
+                <Button className="w-full sm:w-auto border border-yellow-500 text-yellow-700 hover:bg-yellow-500 hover:text-black bg-transparent">
                   Llamar (Español) 737-233-7320
                 </Button>
               </a>
             </div>
-            <ul className="mt-8 grid sm:grid-cols-3 gap-3 text-sm text-slate-700">
+            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-slate-700">
               {["Free same-day quotes", "Clean, on-time work", "Up-front pricing"].map((t) => (
                 <li key={t} className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
                   <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
@@ -71,7 +72,7 @@ function HomePage() {
               <img
                 src={LOGO_SRC}
                 alt="3 Generations Electric logo"
-                className="max-h-72 w-auto object-contain"
+                className="max-h-40 md:max-h-72 w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).outerHTML =
                     '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
@@ -80,7 +81,22 @@ function HomePage() {
             </div>
           </div>
         </div>
+        {/* Trust badges */}
+        <div className="max-w-6xl mx-auto px-4 -mt-6 md:mt-0">
+          <div className="inline-flex items-center gap-2 text-xs md:text-sm text-slate-600 bg-white/70 rounded-full px-3 py-1 shadow-sm">
+            <span>✅ {LICENSE_BADGE}</span>
+          </div>
+        </div>
       </section>
+
+      {/* Mobile quick action bar */}
+      <div className="fixed md:hidden bottom-4 left-0 right-0 px-4 z-40">
+        <div className="mx-auto max-w-sm rounded-2xl shadow-lg bg-white flex overflow-hidden border border-slate-200">
+          <a className="flex-1 py-3 text-center font-medium" href="tel:17372337319">Call</a>
+          <div className="w-px bg-slate-200"/>
+          <a className="flex-1 py-3 text-center font-medium" href="#contact">Quote</a>
+        </div>
+      </div>
 
       {/* Services */}
       <section id="services">
@@ -193,98 +209,24 @@ function HomePage() {
   );
 }
 
-// helper near the top of the file (above the pages)
-const formatDate = () =>
-  new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-
 function PrivacyPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
-      <a href="#/" className="text-sm underline text-slate-600 hover:text-slate-900">← Back to Home</a>
-      <div className="mt-4 bg-white rounded-2xl shadow-md p-6 md:p-8">
-        <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-        <p className="mb-6 text-slate-600">Effective Date: {formatDate()}</p>
-
-        <p className="mb-4">
-          3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
-          collect, use, and protect your information.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Information We Collect</h2>
-        <ul className="list-disc ml-6 mb-4">
-          <li>Contact Form Data: name, phone number, email, and message when you request a quote.</li>
-          <li>Phone & Email: if you call or email us directly.</li>
-          <li>Automatic Info: we do not track cookies or run ads on this site.</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">How We Use Information</h2>
-        <ul className="list-disc ml-6 mb-4">
-          <li>To provide same-day quotes and respond to your requests.</li>
-          <li>To schedule and complete electrical services.</li>
-          <li>To improve communication with our customers.</li>
-        </ul>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Information We Do NOT Share</h2>
-        <p className="mb-4">We do not sell or rent your personal information. We only share your information if required by law.</p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Data Retention</h2>
-        <p className="mb-4">
-          We keep records of quotes and jobs as required by Texas business law. You may request we delete your info at any time by
-          emailing: 3generationselectric@gmail.com.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Your Rights</h2>
-        <p className="mb-6">
-          Texas residents may request access to, correction of, or deletion of their personal information. Contact us at the email above.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
-        <p>
-          3 Generations Electric<br />Austin, TX<br />
-          Email: 3generationselectric@gmail.com<br />
-          Phone: (737) 233-7319
-        </p>
-      </div>
+    <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
+      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+      <p className="mb-4">Effective Date: September 26, 2025</p>
+      <p className="mb-4">
+        3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
+        collect, use, and protect your information.
+      </p>
     </div>
   );
 }
 
 function TermsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
-      <a href="#/" className="text-sm underline text-slate-600 hover:text-slate-900">← Back to Home</a>
-      <div className="mt-4 bg-white rounded-2xl shadow-md p-6 md:p-8">
-        <h1 className="text-3xl font-bold mb-2">Terms of Service</h1>
-        <p className="mb-6 text-slate-600">Effective Date: {formatDate()}</p>
-
-        <h2 className="text-xl font-semibold mt-4 mb-2">Services</h2>
-        <p className="mb-4">
-          We provide licensed residential electrical work in Texas. Quotes are free and based on information provided by the
-          customer. Final pricing may change depending on job conditions.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-4 mb-2">Licensing</h2>
-        <p className="mb-4">All work is performed under Texas Department of Licensing & Regulation License #: 7953.</p>
-
-        <h2 className="text-xl font-semibold mt-4 mb-2">Limitation of Liability</h2>
-        <p className="mb-4">
-          We are not responsible for delays caused by weather, material shortages, or utility providers. Services are provided “as
-          available.” We make every effort to complete jobs safely and on time.
-        </p>
-
-        <h2 className="text-xl font-semibold mt-4 mb-2">Payments</h2>
-        <p className="mb-4">Payment terms will be outlined in your invoice or service agreement.</p>
-
-        <h2 className="text-xl font-semibold mt-4 mb-2">Governing Law</h2>
-        <p className="mb-6">These Terms are governed by the laws of the State of Texas. Venue: courts of Travis County, Texas.</p>
-
-        <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
-        <p>
-          3 Generations Electric<br />Austin, TX<br />
-          Email: 3generationselectric@gmail.com<br />
-          Phone: (737) 233-7319
-        </p>
-      </div>
+    <div className="max-w-4xl mx-auto px-4 py-20 text-slate-800">
+      <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
+      <p className="mb-4">Effective Date: September 26, 2025</p>
     </div>
   );
 }
