@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from "./icons";
+import { ShieldCheck } from "lucide-react";
 
 const LOGO_SRC = "/image000000-3.png"; // ensure this file exists in /public
 const LICENSE_BADGE = "Licensed • Bonded • Insured — TX License #7953";
@@ -13,7 +14,7 @@ function buildMailto({ name, email, phone, message }: { name: string; email: str
 
 type Route = "/" | "/privacy" | "/terms";
 const getRoute = (): Route => {
-  const h = (window.location.hash || "#/" ).replace("#", "");
+  const h = (window.location.hash || "#/").replace("#", "");
   if (h === "/privacy") return "/privacy";
   if (h === "/terms") return "/terms";
   return "/";
@@ -64,6 +65,9 @@ function HomePage() {
                   <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
                 </li>
               ))}
+              <li key="badge" className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
+                <ShieldCheck className="w-4 h-4 text-yellow-500" /> {LICENSE_BADGE}
+              </li>
             </ul>
           </div>
 
@@ -79,12 +83,6 @@ function HomePage() {
                 }}
               />
             </div>
-          </div>
-        </div>
-        {/* Trust badges */}
-        <div className="max-w-6xl mx-auto px-4 -mt-6 md:mt-0">
-          <div className="inline-flex items-center gap-2 text-xs md:text-sm text-slate-600 bg-white/70 rounded-full px-3 py-1 shadow-sm">
-            <span>✅ {LICENSE_BADGE}</span>
           </div>
         </div>
       </section>
