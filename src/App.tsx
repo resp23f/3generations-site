@@ -103,7 +103,6 @@ function HomePage() {
                 </span> 
 		<span className="truncate">{LICENSE_BADGE}</span>
               </li>
-            </ul>
     
           {/* LOGO FIRST on mobile, second on desktop */}
           <div className="order-1 lg:order-2 lg:col-span-4 lg:self-start mb-6 lg:mb-0">
