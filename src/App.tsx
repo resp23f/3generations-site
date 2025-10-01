@@ -99,10 +99,10 @@ function HomePage() {
 
               {/* License chip (same style/length as others) */}
               <li className="inline-flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
-                <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
-                </span> 
+                <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" /> 
 		<span className="truncate">{LICENSE_BADGE}</span>
               </li>
+            </ul>
     
           {/* LOGO FIRST on mobile, second on desktop */}
           <div className="order-1 lg:order-2 lg:col-span-4 lg:self-start mb-6 lg:mb-0">
