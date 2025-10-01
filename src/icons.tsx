@@ -29,17 +29,15 @@ type IconProps = React.SVGProps<SVGSVGElement>;
 
 export const ShieldBadge: React.FC<IconProps> = ({ strokeWidth = 2, ...props }) => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox="0 0 24 24"         // <-- exact: 0 0 24 24
     fill="none"
     stroke="currentColor"
     strokeWidth={strokeWidth}
     strokeLinecap="round"
     strokeLinejoin="round"
-    {...props}
+    {...props}                  // <-- forwards className, style, etc. so Tailwind sizing works
   >
-    {/* shield */}
     <path d="M12 22s7-4 7-10V6l-7-3-7 3v6c0 6 7 10 7 10z" />
-    {/* check */}
     <path d="m9.5 12.5 2 2 3-4" />
   </svg>
 );
