@@ -98,12 +98,12 @@ function HomePage() {
               ))}
 
               {/* License chip (same style/length as others) */}
-<li className="inline-flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
-  {/* fixed-size box so the SVG fills it exactly */}
-  <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[18px] md:h-[18px]">
+<li className="inline-flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm
+               w-max max-w-full sm:col-span-2 lg:col-span-2">
+  <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[20px] md:h-[20px]">
     <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
   </span>
-  <span className="truncate">{LICENSE_BADGE}</span>
+  <span className="whitespace-nowrap">{LICENSE_BADGE}</span>
 </li>
             </ul>
 </div>
