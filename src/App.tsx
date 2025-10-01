@@ -82,7 +82,7 @@ function HomePage() {
             </div>
 
             {/* Features / trust row */}
-            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700">
+            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700 list-none">
               {[
                 "Free same-day quotes",
                 "Clean, on-time work",
@@ -90,16 +90,16 @@ function HomePage() {
               ].map((t, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap"
+                  className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm"
                 >
                   <CheckCircle className="w-4 h-4 text-yellow-500 [stroke-width:2.5]" /> {t}
                 </li>
               ))}
 
               {/* License chip (same style/length as others) */}
-              <li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
+              <li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
                 <CheckCircle className="w-4 h-4 text-yellow-500 [stroke-width:2.5]" />
-                <span className="whitespace-nowrap">{LICENSE_BADGE}</span>
+                <span>{LICENSE_BADGE}</span>
               </li>
             </ul>
           </div>
@@ -154,7 +154,7 @@ function HomePage() {
               "Appliance & HVAC Wiring",
               "Emergency Electrical Service",
             ].map((s) => (
-              <div key={s} className="flex items-start gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
+              <div key={s} className="flex items-start gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
                 <CheckCircle className="mt-0.5 w-4 h-4 text-yellow-500 [stroke-width:2.5]" />
                 <span>{s}</span>
               </div>
