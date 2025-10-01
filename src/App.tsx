@@ -92,14 +92,14 @@ function HomePage() {
                   key={i}
                   className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap"
                 >
-                  <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
+                  <CheckCircle className="w-4 h-4 text-yellow-500" strokewidth={2.5} /> {t}
                 </li>
               ))}
 
               {/* Full-width license badge bar */}
               <li className="col-span-full">
-                <div className="w-full bg-white px-3 py-2 rounded-lg shadow-sm flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-yellow-500 shrink-0" />
+                <div className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm whitespace-nowrap">
+                  <CheckCircle className="w-4 h-4 text-yellow-500 shrink-0" strokewidth={2.5} />
                   <span className="whitespace-nowrap">{LICENSE_BADGE}</span>
                 </div>
               </li>
@@ -157,7 +157,7 @@ function HomePage() {
               "Emergency Electrical Service",
             ].map((s) => (
               <div key={s} className="flex items-start gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
-                <CheckCircle className="mt-0.5 w-4 h-4 text-yellow-500" />
+                <CheckCircle className="mt-0.5 w-4 h-4 text-yellow-500" strokewidth={2.5} />
                 <span>{s}</span>
               </div>
             ))}
