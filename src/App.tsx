@@ -99,16 +99,17 @@ function HomePage() {
             </ul>
           </div>
 
-          {/* Logo with 3D effect */}
-          <div className="lg:col-span-5">
-            <div className="grid place-items-center">
-              <img
-                src={LOGO_SRC}
-                alt="3 Generations Electric logo"
-                className="max-h-40 md:max-h-72 w-auto object-contain rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hover:scale-[1.02]"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).outerHTML =
-                    '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
+  {/* LOGO FIRST on mobile, second on desktop */}
+  <div className="order-1 lg:order-2 lg:col-span-4 lg:self-start mb-6 lg:mb-0">
+    <div className="grid place-items-center">
+      <img
+        src={LOGO_SRC}
+        alt="3 Generations Electric logo"
+        className="w-full max-w-[360px] sm:max-w-[420px] max-h-40 md:max-h-72 object-contain rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hover:scale-[1.02]"
+        onError={(e) => {
+          (e.target as HTMLImageElement).outerHTML =
+            '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
+
                 }}
               />
             </div>
