@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon } from "./icons";
+import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon, ShieldBadge } from "./icons";
+
 
 /** Public assets */
 const LOGO_SRC = "/image000000-3.png";
@@ -97,9 +98,9 @@ function HomePage() {
               ))}
 
               {/* License chip (same style/length as others) */}
-              <li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
-                <CheckCircle className="w-4 h-4 text-yellow-500 [stroke-width:2.5]" />
-                <span>{LICENSE_BADGE}</span>
+              <li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm">
+                <ShieldBadge className="w-4 h-4 text-yellow-500 [stroke-width:2.5]" />
+                <span className="Whitespace-nowrap">{LICENSE_BADGE}</span>
               </li>
             </ul>
           </div>

@@ -22,3 +22,24 @@ export const MapPinIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <circle cx="12" cy="11" r="3" strokeWidth="2"/>
   </svg>
 );
+// at the bottom of src/icons.tsx (or anywhere among the exports)
+import * as React from "react";
+
+type IconProps = React.SVGProps<SVGSVGElement>;
+
+export const ShieldBadge: React.FC<IconProps> = ({ strokeWidth = 2, ...props }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    {/* shield */}
+    <path d="M12 22s7-4 7-10V6l-7-3-7 3v6c0 6 7 10 7 10z" />
+    {/* check */}
+    <path d="m9.5 12.5 2 2 3-4" />
+  </svg>
+);
