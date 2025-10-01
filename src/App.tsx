@@ -87,7 +87,6 @@ function HomePage() {
                 "Free same-day quotes",
                 "Clean, on-time work",
                 "Up-front pricing",
-                LICENSE_BADGE,
               ].map((t, i) => (
                 <li
                   key={i}
@@ -96,22 +95,31 @@ function HomePage() {
                   <CheckCircle className="w-4 h-4 text-yellow-500" /> {t}
                 </li>
               ))}
+
+              {/* Full-width license badge bar */}
+              <li className="col-span-full">
+                <div className="w-full bg-white px-3 py-2 rounded-lg shadow-sm flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-yellow-500 shrink-0" />
+                  <span className="whitespace-nowrap">{LICENSE_BADGE}</span>
+                </div>
+              </li>
             </ul>
           </div>
 
-  {/* LOGO FIRST on mobile, second on desktop */}
-  <div className="order-1 lg:order-2 lg:col-span-4 lg:self-start mb-6 lg:mb-0">
-    <div className="grid place-items-center">
-      <img
-        src={LOGO_SRC}
-        alt="3 Generations Electric logo"
-        className="w-full max-w-[360px] sm:max-w-[420px] max-h-40 md:max-h-72 object-contain rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hover:scale-[1.02]"
-        onError={(e) => {
-          (e.target as HTMLImageElement).outerHTML =
-            '<div class="h-44 w-44 bg-slate-100 grid place-items-center text-xs">Logo</div>';
-
-                }}
-              />
+          {/* LOGO FIRST on mobile, second on desktop */}
+          <div className="order-1 lg:order-2 lg:col-span-4 lg:self-start mb-6 lg:mb-0">
+            <div className="grid place-items-center">
+              <div className="w-full max-w-[360px] sm:max-w-[420px] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+                <img
+                  src={LOGO_SRC}
+                  alt="3 Generations Electric logo"
+                  className="block w-full h-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).outerHTML =
+                      '<div class="h-44 w-full bg-slate-100 grid place-items-center text-xs rounded-3xl">Logo</div>';
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
