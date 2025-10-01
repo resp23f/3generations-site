@@ -98,10 +98,13 @@ function HomePage() {
               ))}
 
               {/* License chip (same style/length as others) */}
-              <li className="inline-flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
-                <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" /> 
-		<span className="truncate">{LICENSE_BADGE}</span>
-              </li>
+<li className="inline-flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm w-max max-w-full">
+  {/* fixed-size box so the SVG fills it exactly */}
+  <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[20px] md:h-[20px]">
+    <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
+  </span>
+  <span className="truncate">{LICENSE_BADGE}</span>
+</li>
             </ul>
     
           {/* LOGO FIRST on mobile, second on desktop */}
