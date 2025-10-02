@@ -85,8 +85,8 @@ function HomePage() {
             {/* Features / trust row */}
             <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700 list-none">
               {[
-                "Free same-day quotes",
-                "Clean, on-time work",
+                "Fast Free quotes",
+                "Reliable Service",
                 "Up-front pricing",
               ].map((t, i) => (
                 <li
