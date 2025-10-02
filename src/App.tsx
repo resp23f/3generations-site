@@ -58,7 +58,7 @@ function HomePage() {
       {/* Hero */}
       <section id="home" className="relative">
         {/* Side-by-side only on large screens to avoid overlap */}
-        <div className="relative max-w-6xl mx-auto px-4 py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
               Powering Homes for <span className="text-yellow-600">3 Generations</span>
@@ -143,7 +143,7 @@ function HomePage() {
 
       {/* Services */}
       <section id="services">
-        <div className="max-w-6xl mx-auto px-4 py-20">
+        <div className="max-w-6xl mx-auto px-4 py-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Our Services</h2>
           <p className="mt-3 text-slate-600">Upgrades, installs, and repairs tailored to your home’s needs.</p>
           <div className="mt-10 grid md:grid-cols-2 gap-x-12 gap-y-4 text-slate-700">
@@ -170,7 +170,7 @@ function HomePage() {
 
       {/* About Us */}
       <section id="about">
-        <div className="max-w-6xl mx-auto px-4 py-20">
+        <div className="max-w-6xl mx-auto px-4 py-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">About Us</h2>
           <p className="mt-4 text-slate-700 leading-relaxed text-lg">
             Our company started as a small family venture over three generations ago, when our grandfather began wiring homes in
@@ -184,7 +184,7 @@ function HomePage() {
 
       {/* Contact */}
       <section id="contact">
-        <div className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10">
+        <div className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Get a Fast Quote</h2>
             <p className="mt-3 text-slate-700">Same-day responses in most cases.</p>
