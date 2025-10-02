@@ -99,7 +99,7 @@ function HomePage() {
 
               {/* License chip (same style/length as others) */}
 <li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm
-               w-max max-w-full sm:col-span-2 lg:col-span-2">
+               w-max max-w-full sm:col-span-2 lg:col-span-4">
   <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[20px] md:h-[20px]">
     <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
   </span>
