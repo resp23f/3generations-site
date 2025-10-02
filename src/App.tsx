@@ -396,7 +396,7 @@ export default function App() {
           <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span>
-              TX License: <span className="font-medium">7953</span>
+              TX Licensed <span className="font-medium">Licensed</span>
             </span>
             <a href="#/terms" className="hover:opacity-80">
               Terms
