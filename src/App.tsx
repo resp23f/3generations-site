@@ -371,15 +371,17 @@ export default function App() {
   <div className="max-w-6xl mx-auto px-4 py-3">
     {/* Mobile: brand + CTA (hide nav links) */}
     <div className="sm:hidden flex items-center justify-between">
-      <a href="#/" className="font-extrabold text-lg text-yellow-600 tracking-wide uppercase">
-        3 Generations Electric
-      </a>
-      <a href="#contact">
-        <Button className="bg-yellow-500 text-black hover:bg-yellow-400 px-3 py-1.5 text-sm rounded-xl">
-          Free Quote
-        </Button>
-      </a>
-    </div>
+  <img
+    src={LOGO_SRC}
+    alt="3 Generations Electric"
+    className="h-8 w-auto"  // keeps it small in the header
+  />
+  <a href="#contact">
+    <Button className="bg-yellow-500 text-black hover:bg-yellow-400 px-3 py-1.5 text-sm rounded-xl">
+      Free Quote
+    </Button>
+  </a>
+</div>
 
     {/* Tablet/Desktop: full nav */}
     <div className="hidden sm:flex items-center justify-between">
