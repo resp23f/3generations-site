@@ -59,7 +59,7 @@ function HomePage() {
       <section id="home" className="relative">
         {/* Side-by-side only on large screens to avoid overlap */}
         <div className="relative max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7">
+          <div className="order-2 lg:order-1 lg:col-span-7">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
               Powering Homes for <span className="text-yellow-600">3 Generations</span>
             </h1>
