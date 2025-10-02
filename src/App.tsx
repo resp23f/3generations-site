@@ -368,8 +368,7 @@ export default function App() {
     <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,0.35)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter] scroll-smooth">
       {/* Header */}
       <header className="sticky top-0 z-40 backdrop-blur bg-white/90 shadow-sm">
-  <div className="max-w-6xl mx-auto px-4 py-3">
-    {/* Mobile: brand + CTA (hide nav links) */}
+  
     
 
     {/* Tablet/Desktop: full nav */}
