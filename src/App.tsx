@@ -7,7 +7,7 @@ import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon, ShieldBadge } from "./ico
 const LOGO_SRC = "/image000000-3.png";
 
 /** Text constants */
-const LICENSE_BADGE = "Licensed Bonded Insured";
+const LICENSE_BADGE = "Bonded & Insured";
 
 /** Mailto helper */
 function buildMailto({
