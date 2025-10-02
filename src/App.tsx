@@ -7,7 +7,7 @@ import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon, ShieldBadge } from "./ico
 const LOGO_SRC = "/image000000-3.png";
 
 /** Text constants */
-const LICENSE_BADGE = "Licensed • Bonded • Insured — TX License #7953";
+const LICENSE_BADGE = "Licensed • Bonded • Insured";
 
 /** Mailto helper */
 function buildMailto({
@@ -325,7 +325,7 @@ function TermsPage() {
           customer. Final pricing may change depending on job conditions.
         </p>
         <h2 className="text-xl font-semibold mt-4 mb-2">Licensing</h2>
-        <p className="mb-4">All work is performed under Texas Department of Licensing & Regulation License #: 7953.</p>
+        <p className="mb-4">All work is performed under Texas Department of Licensing & Regulation.</p>
         <h2 className="text-xl font-semibold mt-4 mb-2">Limitation of Liability</h2>
         <p className="mb-4">
           We are not responsible for delays caused by weather, material shortages, or utility providers. Services are provided “as
@@ -396,7 +396,7 @@ export default function App() {
           <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span>
-              TX License #: <span className="font-medium">7953</span>
+              TX License: <span className="font-medium">7953</span>
             </span>
             <a href="#/terms" className="hover:opacity-80">
               Terms
