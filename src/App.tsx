@@ -94,6 +94,7 @@ function HomePage() {
                   className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm min-w-[160px]"
                 >
                   <CheckCircle className="w-4 h-4 md:w-[18px] md:h-[18px] text-yellow-500 [stroke-width:2.5]" /> {t}
+<span className="flex-1 text-center font-medium">{t}</span>
                 </li>
               ))}
 
