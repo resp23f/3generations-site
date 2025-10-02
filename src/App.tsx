@@ -246,7 +246,7 @@ function HomePage() {
             </label>
             <div className="flex flex-wrap gap-3">
               <Button type="submit" className="bg-yellow-500 text-black hover:bg-yellow-400">
-                Email Quote
+                Send Request
               </Button>
               <a href="tel:17372337319">
                 <Button type="button" className="border border-slate-300 bg-white hover:bg-slate-50">
