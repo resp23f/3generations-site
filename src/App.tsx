@@ -112,7 +112,7 @@ function HomePage() {
           {/* LOGO FIRST on mobile, second on desktop */}
           <div className="order-1 lg:order-2 lg:col-span-4 lg:self-start mb-6 lg:mb-0">
             <div className="grid place-items-center">
-              <div className="w-full max-w-[280px] sm:max-w-[420px] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+              <div className="w-full max-w-[250px] sm:max-w-[420px] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
                 <img
                   src={LOGO_SRC}
                   alt="3 Generations Electric logo"
