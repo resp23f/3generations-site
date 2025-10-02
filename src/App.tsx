@@ -103,7 +103,7 @@ function HomePage() {
   <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[18px] md:h-[18px]">
     <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
   </span>
-  <span className="font-medium">{LICENSE_BADGE}</span>
+  <span className="flex-1 text-center font-medium">{LICENSE_BADGE}</span>
 </li>
             </ul>
 </div>
