@@ -91,19 +91,19 @@ function HomePage() {
               ].map((t, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm"
+                  className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm min-w-[160px]"
                 >
                   <CheckCircle className="w-4 h-4 md:w-[18px] md:h-[18px] text-yellow-500 [stroke-width:2.5]" /> {t}
                 </li>
               ))}
 
               {/* License chip (same style/length as others) */}
-<li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm
-               w-max max-w-full sm:col-span-2 lg:col-span-4">
-  <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[20px] md:h-[20px]">
+<li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg
+               shadow-sm min-w-[160px]">
+  <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[18px] md:h-[18px]">
     <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
   </span>
-  <span className="whitespace-nowrap">{LICENSE_BADGE}</span>
+  <span className="font-medium">{LICENSE_BADGE}</span>
 </li>
             </ul>
 </div>
