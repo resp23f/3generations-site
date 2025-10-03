@@ -417,7 +417,7 @@ export default function App() {
 </a>
 
     <nav className="flex items-center gap-6">
-      <a href="#/" className="hover:text-yellow-600 text-sm font-medium transition-colors">Home</a>
+      <a href="#home" className="hover:text-yellow-600 text-sm font-medium transition-colors">Home</a>
       <a href="#about" className="hover:text-yellow-600 text-sm font-medium transition-colors">About Us</a>
       <a href="#contact">
         <Button className="bg-yellow-500 text-black hover:bg-yellow-400">Free Quote</Button>
