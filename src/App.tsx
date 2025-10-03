@@ -425,7 +425,8 @@ export default function App() {
       </a>
     </nav>
   </div>
-</header> {/* Feather the edge under the sticky header (desktop only) */}
+</header> 
+{/* Feather the edge under the sticky header (desktop only) */}
 <div
   aria-hidden="true"
   className="hidden sm:block fixed left-0 right-0 top-[56px] h-8 z-30 pointer-events-none
