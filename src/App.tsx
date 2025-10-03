@@ -83,30 +83,31 @@ function HomePage() {
             </div>
 
             {/* Features / trust row */}
-            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700 list-none place-items-center lg:place-items-start">
-              {[
-                "Fast Free quotes",
-                "Reliable Service",
-                "Up-front pricing",
-              ].map((t, i) => (
-                <li
-                  key={i}
-                  className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg shadow-sm min-w-[160px]"
-                >
-                  <CheckCircle className="w-4 h-4 md:w-[18px] md:h-[18px] text-yellow-500 [stroke-width:2.5]" />
-<span className="flex-1 text-center font-medium">{t}</span>
-                </li>
-              ))}
+            {/* Features / trust row — 4 across on mobile */}
+<ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-3 text-[11px] sm:text-sm text-slate-700 list-none">
+  {[
+    "Fast, Free Quotes",
+    "Reliable Service",
+    "Up-Front Pricing",
+  ].map((t) => (
+    <li
+      key={t}
+      className="flex items-center justify-center gap-1 bg-white/70 px-2 py-2 rounded-lg shadow-sm text-center leading-tight"
+    >
+      <CheckCircle className="w-3 h-3 sm:w-[18px] sm:h-[18px] text-yellow-500 [stroke-width:2.5]" />
+      <span className="whitespace-normal">{t}</span>
+    </li>
+  ))}
 
-              {/* License chip (same style/length as others) */}
-<li className="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-lg
-               shadow-sm min-w-[160px]">
-  <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[18px] md:h-[18px]">
-    <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
-  </span>
-  <span className="flex-1 text-center font-medium">{LICENSE_BADGE}</span>
-</li>
-            </ul>
+  {/* License chip (same sizing as others) */}
+  <li className="flex items-center justify-center gap-1 bg-white/70 px-2 py-2 rounded-lg shadow-sm text-center leading-tight">
+    <span className="inline-flex shrink-0 items-center justify-center w-3 h-3 sm:w-[18px] sm:h-[18px]">
+      <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
+    </span>
+    <span className="whitespace-normal">Bonded &amp; Insured</span>
+  </li>
+</ul>
+
 </div>
     
           {/* LOGO FIRST on mobile, second on desktop */}
@@ -367,6 +368,7 @@ export default function App() {
   return (
     <div className="min-h-[100dvh] md:min-h-screen
              pt-[env(safe-area-inset-top)] sm:pt-0
+	     pb-24 md:pb-0
              bg-[linear-gradient(180deg,#FEF3C7_0%,#FFF7D1_18%,#FFFBEC_36%,#FFFFFF_70%,#FFFFFF_100%)]
              text-slate-800 font-[Inter] scroll-smooth">
 {/* iOS safe-area fill (mobile only) */}
