@@ -410,8 +410,9 @@ export default function App() {
   className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline"
 >
   3 Generations Electric
-  {/* Desktop-only mini 'LLC' */}
-  <span className="hidden lg:inline relative -top-[4px] ml-px text-[9px] font-semibold tracking-widest text-current">
+  <span
+    className="hidden lg:inline relative top-[2px] ml-px text-[9px] font-semibold tracking-widest text-current leading-none"
+  >
     LLC
   </span>
 </a>
