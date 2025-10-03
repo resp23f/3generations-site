@@ -427,21 +427,15 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
-          <div className="flex items-center gap-4">
-            <span>
-              TX Licensed <span className="font-medium"></span>
-            </span>
-            <a href="#/terms" className="hover:opacity-80">
-              Terms
-            </a>
-            <a href="#/privacy" className="hover:opacity-80">
-              Privacy
-            </a>
-          </div>
-        </div>
-      </footer>
+  <div className="max-w-6xl mx-auto px-4 py-5 md:py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
+    <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
+    <div className="flex items-center gap-4">
+      <span>Licensed • Bonded • Insured</span>
+      <a href="#/terms" className="hover:opacity-80">Terms</a>
+      <a href="#/privacy" className="hover:opacity-80">Privacy</a>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
