@@ -171,7 +171,7 @@ function HomePage() {
 
       {/* About Us */}
       <section id="about">
-        <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto px-4 pt-10 pb-12 md:pt-12 md:pb-16">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">About Us</h2>
           <p className="mt-4 text-slate-700 leading-relaxed text-lg">
             Our company started as a small family venture over three generations ago, when our grandfather began wiring homes in
@@ -185,11 +185,11 @@ function HomePage() {
 
       {/* Contact */}
       <section id="contact">
-        <div className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10">
+        <div className="max-w-6xl mx-auto px-4 pt-10 pb-20 md:pt-12 md:pb-20 grid md:grid-cols-2 gap-8 md:gap-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Get a Fast Quote</h2>
-            <p className="mt-3 text-slate-700">Same-day responses in most cases.</p>
-            <div className="mt-6 space-y-3 text-sm">
+<p className="mt-2 text-slate-700 leading-relaxed text-lg">Same-day responses in most cases.</p>
+            <div className="mt-6 space-y-2.5 text-sm">
               <div className="flex items-center gap-2">
                 <PhoneIcon className="w-4 h-4 text-yellow-600" /> (English){" "}
                 <a className="underline" href="tel:17372337319">
