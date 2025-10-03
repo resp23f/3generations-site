@@ -57,7 +57,7 @@ const [submitting, setSubmitting] = useState(false);
   return (
     <>
       {/* Hero */}
-      <section id="home" className="relative">
+      <section id="home" className="relative scroll-mt-24 lg:scroll-mt-28">
         {/* Side-by-side only on large screens to avoid overlap */}
         <div className="relative max-w-6xl mx-auto px-4 pt-14 pb-8 md:pt-16 md:pb-10 grid lg:grid-cols-12 gap-10 items-center">
           <div className="order-2 lg:order-1 lg:col-span-7 text-center lg:text-left">
