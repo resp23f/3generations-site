@@ -406,12 +406,12 @@ export default function App() {
 <header className="hidden sm:block sticky top-0 z-40 backdrop-blur bg-white/90 shadow-sm">
   <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a
-  href="#/"
-  className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline gap-1"
+  href="#home"
+  className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline"
 >
   3 Generations Electric
-  {/* Desktop-only tag */}
-  <span className="hidden lg:inline relative -top-[2px] text-[10px] font-semibold tracking-widest text-slate-600/80 ml-1">
+  {/* Desktop-only mini 'LLC' */}
+  <span className="hidden lg:inline relative -top-[4px] ml-px text-[9px] font-semibold tracking-widest text-current">
     LLC
   </span>
 </a>
