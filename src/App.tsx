@@ -85,7 +85,7 @@ const [submitting, setSubmitting] = useState(false);
 
             {/* Features / trust row */}
             {/* Features / trust row — 4 across on mobile */}
-<ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-2 text-[11px] sm:text-sm text-slate-700 list-none">
+<ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-2 text-[12px] sm:text-[12px] text-slate-700 list-none">
   {[
     "Fast, Free Quotes",
     "Reliable Service",
@@ -93,17 +93,17 @@ const [submitting, setSubmitting] = useState(false);
   ].map((t) => (
     <li
       key={t}
-      className="flex items-center justify-center gap-1 bg-white/70 px-2 py-2 rounded-lg shadow-sm text-center leading-tight"
+      className="flex items-center justify-center gap-1.5 bg-white/70 px-2.5 py-2 rounded-lg shadow-sm text-center leading-tight leading-snug"
     >
-      <CheckCircle className="w-3 h-3 sm:w-[18px] sm:h-[18px] text-yellow-500 [stroke-width:2.5]" />
+      <CheckCircle className="w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] text-yellow-500 [stroke-width:2.5]" />
       <span className="whitespace-normal">{t}</span>
     </li>
   ))}
 
   {/* License chip (same sizing as others) */}
   <li className="flex items-center justify-center gap-1 bg-white/70 px-2 py-2 rounded-lg shadow-sm text-center leading-tight">
-    <span className="inline-flex shrink-0 items-center justify-center w-3 h-3 sm:w-[18px] sm:h-[18px]">
-      <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
+    <span className="inline-flex shrink-0 items-center justify-center w-[14px] h-[14px] sm:w-[18px] sm:h-[18px]">
+  <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
     </span>
     <span className="whitespace-normal">Bonded &amp; Insured</span>
   </li>
