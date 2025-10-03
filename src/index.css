@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand (optional reference) */
+:root { --brand-cream: #FEF3C7; }
+
+/* Let the gradient fade into true white */
 html, body, #root { height: 100%; }
-:root { --brand-yellow: #FEF3C7; }
-html, body { background: var(--brand-yellow); height: 100%; margin: 0; }
-body { padding-top: env(safe-area-inset-top); }
+
+html, body {
+  background: #ffffff;   /* was var(--brand-yellow) — set to white */
+  margin: 0;
+}
