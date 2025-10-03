@@ -58,7 +58,7 @@ function HomePage() {
       {/* Hero */}
       <section id="home" className="relative">
         {/* Side-by-side only on large screens to avoid overlap */}
-        <div className="relative max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 pt-14 pb-8 md:pt-16 md:pb-10 grid lg:grid-cols-12 gap-10 items-center">
           <div className="order-2 lg:order-1 lg:col-span-7 text-center lg:text-left">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 mx-auto lg:mx-0">
               Powering Homes for{" "} <span className="text-yellow-600 whitespace-nowrap">3&nbsp;Generations</span>
@@ -84,7 +84,7 @@ function HomePage() {
 
             {/* Features / trust row */}
             {/* Features / trust row — 4 across on mobile */}
-<ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-3 text-[11px] sm:text-sm text-slate-700 list-none">
+<ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-2 text-[11px] sm:text-sm text-slate-700 list-none">
   {[
     "Fast, Free Quotes",
     "Reliable Service",
