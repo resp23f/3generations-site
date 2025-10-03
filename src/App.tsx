@@ -431,7 +431,7 @@ export default function App() {
   aria-hidden="true"
   className="hidden sm:block fixed left-0 right-0 top-[56px] h-8 z-30 pointer-events-none
              bg-gradient-to-b from-white/85 via-white/45 to-transparent"
-
+/>
 
 
       {/* Routed content */}
