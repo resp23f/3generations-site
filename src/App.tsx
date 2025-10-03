@@ -59,17 +59,17 @@ function HomePage() {
       <section id="home" className="relative">
         {/* Side-by-side only on large screens to avoid overlap */}
         <div className="relative max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="order-2 lg:order-1 lg:col-span-7">
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+          <div className="order-2 lg:order-1 lg:col-span-7 text-center lg:text-left">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900 mx-auto lg:mx-0">
               Powering Homes for{" "} <span className="text-yellow-600 whitespace-nowrap">3&nbsp;Generations</span>
             </h1>
-            <p className="mt-6 text-lg text-slate-700 max-w-prose">
+            <p className="mt-6 text-lg text-slate-700 max-w-prose mx-auto lg:mx-0">
               Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades — safe,
               reliable, and family-run service.
             </p>
 
             {/* CTAs */}
-            <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
               <a href="tel:17372337319">
                 <Button className="w-full sm:w-auto bg-yellow-500 text-black hover:bg-yellow-400">
                   Call (English) 737-233-7319
@@ -83,7 +83,7 @@ function HomePage() {
             </div>
 
             {/* Features / trust row */}
-            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700 list-none">
+            <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-slate-700 list-none place-items-center lg:place-items-start">
               {[
                 "Fast Free quotes",
                 "Reliable Service",
