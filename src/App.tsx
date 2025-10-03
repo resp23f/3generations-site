@@ -406,7 +406,9 @@ export default function App() {
 <header className="hidden sm:block sticky top-0 z-40 relative backdrop-blur bg-white/80
              after:content-[''] after:absolute after:inset-x-0 after:bottom-0 after:h-6
              after:bg-gradient-to-b after:from-white/80 after:to-transparent after:pointer-events-none">
-  <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+  <div className="min-h-[100dvh] md:min-h-screen pt-[env(safe-area-inset-top)] sm:pt-0 pb-16 md:pb-0
+             bg-[linear-gradient(180deg,#FFFFFF_0%,#FEF3C7_8%,#FFF7D1_22%,#FFFBEC_40%,#FFFFFF_75%,#FFFFFF_100%)]
+             text-slate-800 font-[Inter] scroll-smooth">
     <a
   href="#home"
   className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline"
