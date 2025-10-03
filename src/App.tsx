@@ -48,7 +48,8 @@ const Textarea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement>> = ({
 
 /** ---------- PAGES ---------- **/
 function HomePage() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" }); const [sent, setSent] = useState(false);
+const [submitting, setSubmitting] = useState(false);
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
   const submitHref = buildMailto(form);
@@ -211,49 +212,83 @@ function HomePage() {
             </div>
           </div>
 
-          <form
-  action="https://formspree.io/f/xzzjgqoq"
-  method="POST"
-  className="space-y-3"
-  aria-label="Quote form"
-          >
-            <label className="block text-sm font-medium text-slate-700">
-              Your name <span className="text-red-500">*</span>
-              <Input required name="name" placeholder="Your name" value={form.name} onChange={onChange} />
-            </label>
-            <label className="block text-sm font-medium text-slate-700">
-              Your email <span className="text-red-500">*</span>
-              <Input required name="email" type="email" placeholder="Your email" value={form.email} onChange={onChange} />
-            </label>
-            <label className="block text-sm font-medium text-slate-700">
-              Your phone <span className="text-red-500">*</span>
-              <Input required name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} />
-            </label>
-            <label className="block text-sm font-medium text-slate-700">
-              Your message <span className="text-red-500">*</span>
-              <Textarea
-                required
-                name="message"
-                placeholder="Tell us what you need (e.g., panel upgrade, EV charger, lights)"
-                value={form.message}
-                onChange={onChange}
-              />
-            </label>
-            <div className="flex flex-wrap gap-3">
-              <Button type="submit" className="bg-yellow-500 text-black hover:bg-yellow-400">
-                Send Request
-              </Button>
-              <a href="tel:17372337319">
-                <Button type="button" className="border border-slate-300 bg-white hover:bg-slate-50">
-                  Call Now
-                </Button>
-              </a>
-            </div>
-            <p className="text-xs text-slate-500">
-              By contacting us, you agree to our <a href="#/terms" className="underline">Terms</a> &{" "}
-              <a href="#/privacy" className="underline">Privacy Policy</a>.
-            </p>
-          </form>
+          {sent ? (
+  /* Thank-you card (shown AFTER successful submit) */
+  <div className="rounded-xl bg-white/70 p-6 text-center shadow-sm">
+    <h3 className="text-xl font-semibold text-slate-900">Thank you!</h3>
+    <p className="mt-2 text-slate-700">We received your request and we’ll be in contact with you soon.</p>
+    <a href="#/">
+      <Button className="mt-4 bg-yellow-500 text-black hover:bg-yellow-400">Back to Home</Button>
+    </a>
+  </div>
+) : (
+  /* Form (shown BEFORE submit) */
+  <form
+    onSubmit={async (e) => {
+      e.preventDefault();
+      setSubmitting(true);
+      try {
+        const fd = new FormData(e.currentTarget);
+        const res = await fetch("https://formspree.io/f/xzzjgqoq", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: fd,
+        });
+        if (res.ok) {
+          setSent(true);
+          // Optional: clear the fields
+          // setForm({ name: "", email: "", phone: "", message: "" });
+        } else {
+          alert("Hmm, something went wrong. Please try again.");
+        }
+      } catch {
+        alert("Network error. Please try again.");
+      } finally {
+        setSubmitting(false);
+      }
+    }}
+    className="space-y-3"
+    aria-label="Quote form"
+  >
+    <label className="block text-sm font-medium text-slate-700">
+      Your name <span className="text-red-500">*</span>
+      <Input required name="name" placeholder="Your name" value={form.name} onChange={onChange} />
+    </label>
+
+    <label className="block text-sm font-medium text-slate-700">
+      Your email <span className="text-red-500">*</span>
+      <Input required name="email" type="email" placeholder="Your email" value={form.email} onChange={onChange} />
+    </label>
+
+    <label className="block text-sm font-medium text-slate-700">
+      Your phone <span className="text-red-500">*</span>
+      <Input required name="phone" type="tel" placeholder="Your phone number" value={form.phone} onChange={onChange} />
+    </label>
+
+    <label className="block text-sm font-medium text-slate-700">
+      Your message <span className="text-red-500">*</span>
+      <Textarea
+        required
+        name="message"
+        placeholder="Tell us what you need (e.g., panel upgrade, EV charger, lights)"
+        value={form.message}
+        onChange={onChange}
+      />
+    </label>
+
+    <div className="flex flex-wrap gap-3">
+      <Button type="submit" disabled={submitting} className="bg-yellow-500 text-black hover:bg-yellow-400">
+        {submitting ? "Sending…" : "Get My Quote"}
+      </Button>
+      <a href="tel:17372337319">
+        <Button type="button" className="border border-slate-300 bg-white hover:bg-slate-50">
+          Call Now
+        </Button>
+      </a>
+    </div>
+  </form>
+)}
+
         </div>
       </section>
     </>
