@@ -144,7 +144,7 @@ function HomePage() {
 
       {/* Services */}
       <section id="services">
-        <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto px-4 pt-10 pb-12 md:pt-12 md:pb-14">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Our Services</h2>
           <p className="mt-3 text-slate-600">Upgrades, installs, and repairs tailored to your home’s needs.</p>
           <div className="mt-10 grid md:grid-cols-2 gap-x-12 gap-y-4 text-slate-700">
