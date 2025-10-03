@@ -427,7 +427,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-5 py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="max-w-6xl mx-auto px-4 py-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
           <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span>
