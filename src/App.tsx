@@ -61,7 +61,7 @@ function HomePage() {
         <div className="relative max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="order-2 lg:order-1 lg:col-span-7">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
-              Powering Homes for <span className="text-yellow-600">3 Generations</span>
+              Powering Homes for{" "} <span className="text-yellow-600 whitespace-nowrap">3&nbsp;Generations</span>
             </h1>
             <p className="mt-6 text-lg text-slate-700 max-w-prose">
               Trusted residential electricians in Austin, Manor, Bastrop & Elgin. From EV chargers to full panel upgrades — safe,
