@@ -403,11 +403,9 @@ export default function App() {
 {/* iOS safe-area fill (mobile only) */}
     
     {/* Header (desktop only) */}
-<header className="hidden sm:block sticky top-0 z-40 relative backdrop-blur bg-white/80
-             after:content-[''] after:absolute after:inset-x-0 after:bottom-0 after:h-6
-             after:bg-gradient-to-b after:from-white/85 after:via-white/40 after:to-transparent
-             after:pointer-events-none after:z-0">
-  <div className="relative z-10 max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+<header className="hidden sm:block sticky top-0 z-40 relative backdrop-blur bg-white/80">
+  <div className="hidden sm:block fixed left-0 right-0 top-[56px] h-8 z-30 pointer-events-none
+             bg-gradient-to-b from-white/85 via-white/45 to-transparent">
     <a
   href="#home"
   className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline"
