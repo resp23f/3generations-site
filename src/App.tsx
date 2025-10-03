@@ -105,7 +105,7 @@ const [submitting, setSubmitting] = useState(false);
     <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[18px] md:h-[18px]">
   <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
     </span>
-    <span className="whitespace-normal">Bonded &amp; Insured</span>
+    <span className="whitespace-normal">Bonded Insured</span>
   </li>
 </ul>
 
