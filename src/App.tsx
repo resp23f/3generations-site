@@ -95,14 +95,14 @@ const [submitting, setSubmitting] = useState(false);
       key={t}
       className="flex items-center justify-center gap-1.5 bg-white/70 px-2.5 py-2 rounded-lg shadow-sm text-center leading-tight leading-snug font-medium min-h-[40px] sm:min-h-[44px]"
     >
-      <CheckCircle className="w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] text-yellow-500 [stroke-width:2.5]" />
+      <CheckCircle className="w-4 h-4 md:w-[18px] md:h-[18px] text-yellow-500 [stroke-width:2.5] shrink-0" />
       <span className="whitespace-normal">{t}</span>
     </li>
   ))}
 
   {/* License chip (same sizing as others) */}
   <li className="flex items-center justify-center gap-1.5 bg-white/70 px-2.5 py-2 rounded-lg shadow-sm text-center leading-snug font-medium min-h-[40px] sm:min-h-[44px]">
-    <span className="inline-flex shrink-0 items-center justify-center w-[14px] h-[14px] sm:w-[18px] sm:h-[18px]">
+    <span className="inline-flex shrink-0 items-center justify-center w-4 h-4 md:w-[18px] md:h-[18px]">
   <ShieldBadge className="w-full h-full text-yellow-500 [stroke-width:2.5]" />
     </span>
     <span className="whitespace-normal">Bonded &amp; Insured</span>
