@@ -212,16 +212,10 @@ function HomePage() {
           </div>
 
           <form
-            className="space-y-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (!form.name || !form.email || !form.phone || !form.message) {
-                alert("Please fill in all required fields including phone number.");
-                return;
-              }
-              window.location.href = submitHref;
-            }}
-            aria-label="Quote form"
+  action="https://formspree.io/f/xzzjgqoq"
+  method="POST"
+  className="space-y-3"
+  aria-label="Quote form"
           >
             <label className="block text-sm font-medium text-slate-700">
               Your name <span className="text-red-500">*</span>
