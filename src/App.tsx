@@ -404,8 +404,7 @@ export default function App() {
     
     {/* Header (desktop only) */}
 <header className="hidden sm:block sticky top-0 z-40 relative backdrop-blur bg-white/80">
-  <div className="hidden sm:block fixed left-0 right-0 top-[56px] h-8 z-30 pointer-events-none
-             bg-gradient-to-b from-white/85 via-white/45 to-transparent">
+  <div className="relative z-10 max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a
   href="#home"
   className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline"
@@ -426,7 +425,11 @@ export default function App() {
       </a>
     </nav>
   </div>
-</header>
+</header> {/* Feather the edge under the sticky header (desktop only) */}
+<div
+  aria-hidden="true"
+  className="hidden sm:block fixed left-0 right-0 top-[56px] h-8 z-30 pointer-events-none
+             bg-gradient-to-b from-white/85 via-white/45 to-transparent"
 
 
 
