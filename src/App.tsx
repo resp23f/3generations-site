@@ -365,7 +365,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,1)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter] scroll-smooth">
+    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(253,224,71,0.40)_0%,rgba(253,224,71,0.18)_22%,rgba(253,224,71,0.08)_45%,rgba(255,255,255,1)_78%,rgba(255,255,255,1)_100%)] text-slate-800 font-[Inter] scroll-smooth">
 {/* iOS safe-area fill (mobile only) */}
     <div className="fixed inset-x-0 top-0 h-[env(safe-area-inset-top)] bg-[#fde047] sm:hidden z-50 pointer-events-none" />
     {/* Header (desktop only) */}
