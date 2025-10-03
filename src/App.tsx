@@ -405,9 +405,17 @@ export default function App() {
     {/* Header (desktop only) */}
 <header className="hidden sm:block sticky top-0 z-40 backdrop-blur bg-white/90 shadow-sm">
   <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href="#/" className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase">
-      3 Generations Electric
-    </a>
+    <a
+  href="#/"
+  className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline gap-1"
+>
+  3 Generations Electric
+  {/* Desktop-only tag */}
+  <span className="hidden lg:inline relative -top-[2px] text-[10px] font-semibold tracking-widest text-slate-600/80 ml-1">
+    LLC
+  </span>
+</a>
+
     <nav className="flex items-center gap-6">
       <a href="#/" className="hover:text-yellow-600 text-sm font-medium transition-colors">Home</a>
       <a href="#about" className="hover:text-yellow-600 text-sm font-medium transition-colors">About Us</a>
