@@ -404,8 +404,9 @@ export default function App() {
     
     {/* Header (desktop only) */}
 <header className="hidden sm:block sticky top-0 z-40 relative backdrop-blur bg-white/80
-             after:content-[''] after:absolute after:inset-x-0 after:bottom-0 after:h-6
-             after:bg-gradient-to-b after:from-white/80 after:to-transparent after:pointer-events-none">
+             after:content-[''] after:absolute after:inset-x-0 after:bottom-[-1px] after:h-8
+             after:bg-gradient-to-b after:from-white/90 after:via-white/50 after:to-transparent
+             after:pointer-events-none">
   <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a
   href="#home"
