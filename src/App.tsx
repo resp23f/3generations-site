@@ -411,7 +411,7 @@ export default function App() {
 >
   3 Generations Electric
   <span
-    className="hidden lg:inline relative top-[2px] ml-px text-[9px] font-semibold tracking-widest text-current leading-none"
+    className="hidden lg:inline relative top-[1px] ml-px text-[8px] font-semibold tracking-wide text-current leading-none"
   >
     LLC
   </span>
