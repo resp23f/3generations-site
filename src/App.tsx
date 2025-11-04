@@ -21,7 +21,7 @@ function buildMailto({
   phone: string;
   message: string;
 }) {
-  const subject = encodeURIComponent("Quote Request - 3 Generations Electric");
+  const subject = encodeURIComponent("Quote Request - Three Generation Electric");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
   return `mailto:3generationselectric@gmail.com?subject=${subject}&body=${body}`;
 }
@@ -308,7 +308,7 @@ function PrivacyPage() {
         <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
         <p className="mb-6 text-slate-600">Effective Date: {formatDate()}</p>
         <p className="mb-4">
-          3 Generations Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
+          Three Generation Electric (“Company,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how we
           collect, use, and protect your information.
         </p>
         <h2 className="text-xl font-semibold mt-6 mb-2">Information We Collect</h2>
@@ -409,7 +409,7 @@ export default function App() {
   href="#home"
   className="font-extrabold text-xl text-yellow-600 tracking-wide uppercase flex items-baseline"
 >
-  3 Generations Electric
+  Three Generation Electric
   <span
     className="hidden lg:inline relative top-[0.5px] ml-px text-[3px] font-semibold tracking-tight text-current leading-none"
   >
