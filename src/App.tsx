@@ -23,7 +23,7 @@ function buildMailto({
 }) {
   const subject = encodeURIComponent("Quote Request - Three Generation Electric");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
-  return `mailto:3generationselectric@gmail.com?subject=${subject}&body=${body}`;
+  return `mailto:info@threegenerationelectric.com?subject=${subject}&body=${body}`;
 }
 
 /** Hash router */
@@ -204,7 +204,7 @@ const [submitting, setSubmitting] = useState(false);
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MailIcon className="w-4 h-4 text-yellow-600" /> 3generationselectric@gmail.com
+                <MailIcon className="w-4 h-4 text-yellow-600" /> info@threegenerationelectric.com
               </div>
               <div className="flex items-center gap-2">
                 <MapPinIcon className="w-4 h-4 text-yellow-600" /> Austin, Manor, Bastrop, Elgin
@@ -328,14 +328,14 @@ function PrivacyPage() {
         <h2 className="text-xl font-semibold mt-6 mb-2">Data Retention</h2>
         <p className="mb-4">
           We keep records of quotes and jobs as required by Texas business law. You may request deletion at any time by emailing
-          3generationselectric@gmail.com.
+          info@threegenerationelectric.com.
         </p>
         <h2 className="text-xl font-semibold mt-6 mb-2">Your Rights</h2>
         <p className="mb-6">Texas residents may request access, correction, or deletion of personal information via the email above.</p>
         <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
         <p>
           Three Generation Electric<br />Austin, TX<br />
-          Email: 3generationselectric@gmail.com<br />
+          Email: info@threegenerationelectric.com<br />
           Phone: (737) 233-7319
         </p>
       </div>
@@ -369,7 +369,7 @@ function TermsPage() {
         <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
         <p>
           Three Generation Electric<br />Austin, TX<br />
-          Email: 3generationselectric@gmail.com<br />
+          Email: info@threegenerationelectric.com<br />
           Phone: (737) 233-7319
         </p>
       </div>
