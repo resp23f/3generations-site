@@ -334,7 +334,7 @@ function PrivacyPage() {
         <p className="mb-6">Texas residents may request access, correction, or deletion of personal information via the email above.</p>
         <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
         <p>
-          3 Generations Electric<br />Austin, TX<br />
+          Three Generation Electric<br />Austin, TX<br />
           Email: 3generationselectric@gmail.com<br />
           Phone: (737) 233-7319
         </p>
@@ -368,7 +368,7 @@ function TermsPage() {
         <p className="mb-6">These Terms are governed by the laws of the State of Texas. Venue: courts of Travis County, Texas.</p>
         <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
         <p>
-          3 Generations Electric<br />Austin, TX<br />
+          Three Generation Electric<br />Austin, TX<br />
           Email: 3generationselectric@gmail.com<br />
           Phone: (737) 233-7319
         </p>
@@ -442,7 +442,7 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-white">
   <div className="max-w-6xl mx-auto px-4 py-5 md:py-8 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
-    <div>© {new Date().getFullYear()} 3 Generations Electric. All rights reserved.</div>
+    <div>© {new Date().getFullYear()} Three Generation Electric. All rights reserved.</div>
     <div className="flex items-center gap-4">
       <span>Licensed • Bonded • Insured</span>
       <a href="#/terms" className="hover:opacity-80">Terms</a>
