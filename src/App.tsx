@@ -229,7 +229,7 @@ const [submitting, setSubmitting] = useState(false);
       setSubmitting(true);
       try {
         const fd = new FormData(e.currentTarget);
-        const res = await fetch("https://formspree.io/f/xzzjgqoq", {
+        const res = await fetch("https://formspree.io/f/xqagrplk", {
           method: "POST",
           headers: { Accept: "application/json" },
           body: fd,
