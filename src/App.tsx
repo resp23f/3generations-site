@@ -4,7 +4,7 @@ import { CheckCircle, PhoneIcon, MailIcon, MapPinIcon, ShieldBadge } from "./ico
 
 
 /** Public assets */
-const LOGO_SRC = "/image000000-3.png";
+const LOGO_SRC = "/Hero Logo Version B.png";
 
 /** Text constants */
 const LICENSE_BADGE = "Bonded Insured";
