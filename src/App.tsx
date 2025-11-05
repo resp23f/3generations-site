@@ -218,7 +218,6 @@ const [submitting, setSubmitting] = useState(false);
     <h3 className="text-xl font-semibold text-slate-900">Thank you!</h3>
     <p className="mt-2 text-slate-700">We received your request and we’ll be in contact with you soon.</p>
     <a href="#/">
-      <Button className="mt-4 bg-yellow-500 text-black hover:bg-yellow-400">Back to Home</Button>
     </a>
   </div>
 ) : (
