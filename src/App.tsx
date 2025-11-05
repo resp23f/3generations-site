@@ -333,7 +333,7 @@ function PrivacyPage() {
         <p className="mb-6">Texas residents may request access, correction, or deletion of personal information via the email above.</p>
         <h2 className="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
         <p>
-          Three Generation Electric<br />Austin, TX<br />
+          Three Generation Electric LLC<br />Austin, TX<br />
           Email: info@threegenerationelectric.com<br />
           Phone: (737) 233-7319
         </p>
@@ -367,7 +367,7 @@ function TermsPage() {
         <p className="mb-6">These Terms are governed by the laws of the State of Texas. Venue: courts of Travis County, Texas.</p>
         <h2 className="text-xl font-semibold mt-4 mb-2">Contact Us</h2>
         <p>
-          Three Generation Electric<br />Austin, TX<br />
+          Three Generation Electric LLC<br />Austin, TX<br />
           Email: info@threegenerationelectric.com<br />
           Phone: (737) 233-7319
         </p>
